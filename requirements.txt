@@ -1,0 +1,35 @@
+# Core Python runtime dependencies, pinned to the versions used in the source environment.
+# NOTE: This file does NOT cover the CUDA-compiled stack (torch / sglang /
+# megatron-core / transformer_engine / flash_attn / flashinfer). Those must be
+# installed in a specific order against your CUDA toolkit — see README.md and
+# requirements-cuda.txt. Install this project with `pip install -e .`.
+accelerate==1.13.0
+cachetools==7.1.8
+codetiming==1.4.0
+datasets==4.8.4
+dill==0.4.1
+einops==0.8.2
+fastapi==0.135.2
+hydra-core==1.3.2
+ninja==1.13.0
+numpy==1.26.4
+packaging==25.0
+pandas==2.3.3
+peft==0.18.1
+pillow==12.1.1
+pyarrow==23.0.1
+pybind11==3.0.3
+ray[default]==2.54.1
+tensorboard==2.20.0
+tensordict==0.10.0
+torchdata==0.11.0
+torch-memory-saver==0.0.9.post1
+transformers==4.57.0
+uvicorn==0.42.0
+wandb==0.25.1
+aiohttp
+httpx
+python-dotenv
+huggingface-hub
+faiss-cpu
+rank-bm25

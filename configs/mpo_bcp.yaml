@@ -1,0 +1,50 @@
+hydra:
+  searchpath:
+    - pkg://verl.trainer.config
+
+defaults:
+  - ppo_megatron_trainer
+  - _self_
+
+data:
+  train_batch_size: 32
+  return_raw_chat: true
+  return_multi_modal_inputs: false
+
+algorithm:
+  adv_estimator: gae
+  gamma: 1.0
+  lam: 0.8
+  lam_critic: 1.0
+  turn_level_lam: true
+  turn_value_mode: first_assistant
+  intra_turn_beta: 1.0
+  intra_turn_lam: 0.95
+  intra_turn_use_reward: true
+
+actor_rollout_ref:
+  actor:
+    policy_loss:
+      loss_mode: turn_is
+    megatron:
+      override_transformer_config:
+        recompute_granularity: selective
+        recompute_modules: [core_attn]
+        attention_backend: flash
+  rollout:
+    name: sglang
+    mode: async
+    multi_turn:
+      enable: true
+    agent:
+      default_agent_loop: tool_agent
+
+reward:
+  custom_reward_function:
+    name: compute_score
+    reward_kwargs:
+      strict_judge: true
+
+trainer:
+  val_only: false
+  project_name: multiscale-policy-optimization

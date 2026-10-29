@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multiscale-policy-optimization"
+version = "0.1.0"
+description = "Multiscale Policy Optimization for multi-turn search agents on BrowseComp-Plus"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.setuptools.packages.find]
+include = ["verl*", "mpo*", "retrieval*"]
+
+[tool.setuptools.package-data]
+verl = ["version/*", "trainer/config/**/*.yaml", "trainer/config/*.yaml", "experimental/**/*.yaml"]
+

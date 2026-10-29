@@ -1,0 +1,6 @@
+Multiscale Policy Optimization
+
+This distribution contains training runtime code derived from verl and the
+source distribution identified in THIRD_PARTY_NOTICES.txt. Original source
+copyright and license headers are retained. See LICENSE and
+THIRD_PARTY_NOTICES.txt for the upstream notices.
